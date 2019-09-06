@@ -1,0 +1,13 @@
+# WordPress CLI
+
+
+# Staging Server
+@staging:
+    ssh: staging@host
+    path: /path/to/staging
+
+# Production Server
+@production:
+    ssh: production@host
+    path: /path/to/production
+

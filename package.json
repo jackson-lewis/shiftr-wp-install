@@ -1,0 +1,12 @@
+{
+	"name": "Shiftr",
+	"description": "A Shiftr Project",
+	"version": "0.0.1",
+	"author": "Jackson Lewis",
+	"license": "",
+	"scripts": {
+		"install": "cd wp-content/themes/shiftr && npm install",
+		"build": "cd wp-content/themes/shiftr && gulp build",
+		"compile-assets": "cd wp-content/themes/shiftr && gulp compile-assets --env production"
+	}
+}

@@ -1,0 +1,39 @@
+# This will be your projects .gitignore file.
+# It will automatically be replaced with the
+# shiftr-wp-project repo .gitignore on shr install
+
+.DS_Store
+
+node_modules
+
+wp-admin/
+wp-includes/
+.htaccess
+index.php
+license.txt
+liesmich.html
+readme.html
+wp-activate.php
+wp-blog-header.php
+wp-comments-post.php
+wp-config.php
+wp-config-sample.php
+wp-cron.php
+wp-links-opml.php
+wp-load.php
+wp-login.php
+wp-mail.php
+wp-settings.php
+wp-signup.php
+wp-trackback.php
+xmlrpc.php
+config/
+wp-content/plugins/
+wp-content/mu-plugins/
+wp-content/languages/
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/themes/*
+
+# don't ignore the theme you're using
+!wp-content/themes/shiftr
