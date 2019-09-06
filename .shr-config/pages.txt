@@ -1,3 +1,0 @@
-page|Contact Us|contact.php|contact
-page|Services|services-update.php
-page|Demo|Default|demo-days
