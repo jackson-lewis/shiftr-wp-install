@@ -3,11 +3,11 @@
 
 # Staging Server
 @staging:
-    ssh: staging@host
-    path: /path/to/staging
+    ssh: staging_user@staging_host
+    path: staging_path
 
 # Production Server
 @production:
-    ssh: production@host
-    path: /path/to/production
+    ssh: production_user@production_host
+    path: production_path
 

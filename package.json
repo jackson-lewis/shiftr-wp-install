@@ -1,12 +1,26 @@
 {
-	"name": "Shiftr",
-	"description": "A Shiftr Project",
-	"version": "0.0.1",
-	"author": "Jackson Lewis",
+	"name": "production_url",
+	"description": "Brief description",
+	"version": "1.0.0",
+	"author": "Lead Developer",
 	"license": "",
 	"scripts": {
 		"install": "cd wp-content/themes/shiftr && npm install",
 		"build": "cd wp-content/themes/shiftr && gulp build",
-		"compile-assets": "cd wp-content/themes/shiftr && gulp compile-assets --env production"
+		"compile": "cd wp-content/themes/shiftr && gulp compile",
+		"compile-production": "cd wp-content/themes/shiftr && gulp compile --env production",
+		"sublime": "sublime wp-content/themes/shiftr",
+		"launch-env": ".scripts/launch-env.bash $1",
+		"migrate-db": ".scripts/migrate-db.bash $1 $2",
+		"migrate-media": ".scripts/migrate-media.bash $1 $2",
+		"get-staging-db": ".scripts/migrate-db.bash staging dev",
+		"get-staging-media": ".scripts/migrate-media.bash staging dev",
+		"get-staging": "npm -s run get-staging-db && npm -s run get-staging-media",
+		"get-production-db": ".scripts/migrate-db.bash production dev",
+		"get-production-media": ".scripts/migrate-media.bash production dev",
+		"get-production": "npm -s run get-production-db && npm -s run get-production-media",
+		"push-staging-db": ".scripts/migrate-db.bash dev test",
+		"push-staging-media": ".scripts/migrate-media.bash dev test",
+		"push-staging": "npm -s run push-test-db && npm -s run push-test-media"
 	}
 }

@@ -1,0 +1,15 @@
+.DS_Store
+bitbucket-pipelines.yml
+wp-cli.yml
+package.json
+.gitignore
+wp-config.php
+wp-config-production.php
+.scripts/
+
+wp-content/themes/shiftr/.gitignore
+wp-content/themes/shiftr/gulpfile.js
+wp-content/themes/shiftr/package.json
+wp-content/themes/shiftr/package-lock.json
+wp-content/themes/shiftr/node_modules/
+wp-content/themes/shiftr/inventory/
