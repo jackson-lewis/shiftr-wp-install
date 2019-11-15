@@ -11,7 +11,7 @@ then
     exit 1
 fi
 
-echo $cyan'Doing database migration...'$white
+echo $cyan'Doing database sync...'$white
 echo
 echo 'Source environment is:' $1;
 echo 'Target environment is:' $2;
@@ -33,7 +33,7 @@ echo "Source URL is: $SOURCE_URL"
 echo "Target URL is: $TARGET_URL"
 echo
 
-migrate_db() {
+sync_db() {
 
 	wp_cli_source="@$source"
 	wp_cli_target="@$target"
@@ -76,7 +76,8 @@ migrate_db() {
 		done
 	fi
 
-	echo $green"Database migration complete!"$white
+	echo $green"Database sync complete!"$white
 }
 
-migrate_db
+sync_db
+
