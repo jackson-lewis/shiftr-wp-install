@@ -1,8 +1,8 @@
 {
 	"name": "production_url",
-	"description": "Brief description",
+	"description": "",
 	"version": "1.0.0",
-	"author": "Lead Developer",
+	"author": "",
 	"license": "",
 	"scripts": {
 		"install": "cd wp-content/themes/shiftr && npm install",
@@ -19,8 +19,8 @@
 		"get-production-db": ".scripts/migrate-db.bash production dev",
 		"get-production-media": ".scripts/migrate-media.bash production dev",
 		"get-production": "npm -s run get-production-db && npm -s run get-production-media",
-		"push-staging-db": ".scripts/migrate-db.bash dev test",
-		"push-staging-media": ".scripts/migrate-media.bash dev test",
-		"push-staging": "npm -s run push-test-db && npm -s run push-test-media"
+		"push-staging-db": ".scripts/migrate-db.bash dev staging",
+		"push-staging-media": ".scripts/migrate-media.bash dev staging",
+		"push-staging": "npm -s run push-staging-db && npm -s run push-staging-media"
 	}
 }
