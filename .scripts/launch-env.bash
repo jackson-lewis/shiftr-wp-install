@@ -88,8 +88,6 @@ setup_target_wp_config() {
 		cd $( echo "$remote_path" );
 
 		mv wp-config-\"$TARGET\".php wp-config.php;
-
-		ls -a
 	"
 }
 
