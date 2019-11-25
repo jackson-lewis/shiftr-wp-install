@@ -10,6 +10,7 @@
 		"compile": "cd wp-content/themes/shiftr && gulp compile",
 		"compile-production": "cd wp-content/themes/shiftr && gulp compile --env production",
 		"sublime": "sublime wp-content/themes/shiftr",
+		"ssh": ".scripts/ssh.bash $1",
 		"launch-env": ".scripts/launch-env.bash $1",
 		"sync-db": ".scripts/sync-db.bash $1 $2",
 		"sync-media": ".scripts/sync-media.bash $1 $2",
