@@ -7,10 +7,9 @@ wp-config.php
 wp-config-staging.php
 .scripts/
 
-wp-content/themes/shiftr/.gitignore
-wp-content/themes/shiftr/gulpfile.js
-wp-content/themes/shiftr/package.json
-wp-content/themes/shiftr/package-lock.json
-wp-content/themes/shiftr/node_modules/
-wp-content/themes/shiftr/inventory/
-wp-content/themes/shiftr/build/
+wp-content/themes/<YOUR-THEME>/.gitignore
+wp-content/themes/<YOUR-THEME>/gulpfile.js
+wp-content/themes/<YOUR-THEME>/package.json
+wp-content/themes/<YOUR-THEME>/package-lock.json
+wp-content/themes/<YOUR-THEME>/node_modules/
+wp-content/themes/<YOUR-THEME>/build/

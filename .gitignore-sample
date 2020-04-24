@@ -1,6 +1,4 @@
 # This will be your projects .gitignore file.
-# It will automatically be replaced with the
-# shiftr-wp-project repo .gitignore on shr install
 
 .DS_Store
 
@@ -41,4 +39,4 @@ wp-content/themes/*
 .backups/
 
 # don't ignore the theme you're using
-!wp-content/themes/shiftr
+!wp-content/themes/<YOUR-THEME>
