@@ -1,8 +1,8 @@
 {
 	"name": "production_url",
-	"description": "",
+	"description": "Enhance your WordPress workflow one command after the other.",
 	"version": "1.0.0",
-	"author": "",
+	"author": "Jackson Lewis",
 	"license": "",
 	"scripts": {
 		"install": "cd wp-content/themes/shiftr && npm install",
