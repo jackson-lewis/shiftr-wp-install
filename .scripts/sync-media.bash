@@ -28,6 +28,19 @@ then
 fi
 
 
+if [ $target =~ ^(staging|production)$ ]
+then
+    read -p "Are you sure you want to push to $target? " -r
+    echo
+
+    if [[ ! $REPLY =~ ^(y|Y|yes|YES|Yes|yea|yeah)$ ]]
+    then
+        echo $cyan"Cancelling media sync"$white
+        exit 1
+    fi
+fi
+
+
 # Assign target variables
 SOURCE_LOCATION=$(get_host $source "$WP_UPLOADS_DIR")
 TARGET_LOCATION=$(get_host $target "$WP_UPLOADS_DIR")

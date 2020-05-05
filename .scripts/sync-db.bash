@@ -26,6 +26,19 @@ then
 fi
 
 
+if [ $target =~ ^(staging|production)$ ]
+then
+    read -p "Are you sure you want to push to $target? " -r
+    echo
+
+    if [[ ! $REPLY =~ ^(y|Y|yes|YES|Yes|yea|yeah)$ ]]
+    then
+        echo $cyan"Cancelling database sync"$white
+        exit 1
+    fi
+fi
+
+
 SOURCE_URL=$( get_url $source )
 TARGET_URL=$( get_url $target )
 
