@@ -21,6 +21,7 @@
 		"get-production": "npm -s run get-production-db && npm -s run get-production-media",
 		"push-staging-db": ".scripts/sync-db.bash dev staging",
 		"push-staging-media": ".scripts/sync-media.bash dev staging",
-		"push-staging": "npm -s run push-staging-db && npm -s run push-staging-media"
+        "push-staging": "npm -s run push-staging-db && npm -s run push-staging-media",
+        "woo-override": ".scripts/woocommerce-override-template.bash $1"
 	}
 }

@@ -28,3 +28,6 @@ What used to be a clumsy and sometimes lengthy process, can now be processed in 
  
 
 > It is always advised you fetch the database and media together, as both are dependant on the other. Only fetch the database if you are confident there are not recent media changes.
+
+### Woocommerce Ready
+`woo-override <file>` - Copying a Woocommerce template file to your theme is a breeze with this Woo specific command. File references should be relative to the template directory within the Woocommerce plugin. For example, to get the cart-empty template, just do `woo-override cart/cart-empty.php`.
