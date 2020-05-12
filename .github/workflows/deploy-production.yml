@@ -1,0 +1,40 @@
+name: Deploy Production
+
+on:
+  push:
+    branches:
+    - production
+    paths:
+    - 'wp-content/themes/<THEME>/**'
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set-up Node.js
+      uses: actions/setup-node@v1
+    - name: Cache node_modules
+      uses: actions/cache@v1
+      with:
+        path: ~/.npm
+        key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-node-
+    - name: Get deps
+      run: npm -s run install
+    - name: Compile (minified)
+      run: npm -s run compile-production
+    - name: Deploy to server
+      id: deploy
+      uses: Pendect/action-rsyncer@v1.1.0
+      env:
+        DEPLOY_KEY: ${{secrets.PRODUCTION_DEPLOY_KEY}}
+      with:
+        flags: '-avz --delete'
+        options: '--exclude-from $GITHUB_WORKSPACE/.scripts/deploy/exclude-production.txt'
+        ssh_options: ''
+        src: '${{ secrets.THEME_DIR }}'
+        dest: '${{ secrets.PRODUCTION_USER }}@${{ secrets.PRODUCTION_HOST }}:${{ secrets.PRODUCTION_PATH }}/${{ secrets.THEME_DIR }}'
