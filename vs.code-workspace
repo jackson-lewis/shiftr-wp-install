@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Project Root",
+			"path": "."
+		},
+		{
+			"name": "Theme",
+			"path": "wp-content/themes/<THEME>"
+		}
+	]
+}
