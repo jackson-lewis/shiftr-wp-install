@@ -28,7 +28,7 @@ then
 fi
 
 
-if [ $target =~ ^(staging|production)$ ]
+if [[ $target =~ ^(staging|production)$ ]]
 then
     read -p "Are you sure you want to push to $target? " -r
     echo
