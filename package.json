@@ -1,9 +1,9 @@
 {
-	"name": "production_url",
+	"name": "wordpress-enhanced-workflow",
 	"description": "Enhance your WordPress workflow one command after the other.",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": "Jackson Lewis",
-	"license": "",
+	"license": "MIT",
 	"scripts": {
 		"install": "cd wp-content/themes/shiftr && npm install",
 		"build": "cd wp-content/themes/shiftr && gulp build",
