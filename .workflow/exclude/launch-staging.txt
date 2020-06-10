@@ -1,0 +1,17 @@
+.DS_Store
+wp-cli.yml
+package.json
+.gitignore
+wp-config.php
+wp-config-production.php
+.workflow/
+.github/
+.vscode/
+.backups/
+
+wp-content/themes/<THEME>/.gitignore
+wp-content/themes/<THEME>/.babelrc
+wp-content/themes/<THEME>/gulpfile.babel.js
+wp-content/themes/<THEME>/package.json
+wp-content/themes/<THEME>/package-lock.json
+wp-content/themes/<THEME>/node_modules/

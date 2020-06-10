@@ -1,5 +1,6 @@
 .gitignore
-gulpfile.js
+.babelrc
+gulpfile.babel.js
 package.json
 package-lock.json
 node_modules/
