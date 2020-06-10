@@ -12,6 +12,7 @@
         "ssh": ".scripts/ssh.bash $1",
         "ssh-staging": "npm -s run ssh staging",
         "ssh-production": "npm -s run ssh production",
+        "git": ".scripts/git-suite.bash $1",
 		"launch-env": ".scripts/launch-env.bash $1",
 		"sync-db": ".scripts/sync-db.bash $1 $2",
 		"sync-media": ".scripts/sync-media.bash $1 $2",
