@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. $CWD/config.conf || exit 1
+. $( pwd )"/.workflow/project.conf" || exit 1
 
 
 red=$'\e[1;31m'
