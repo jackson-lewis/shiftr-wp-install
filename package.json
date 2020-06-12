@@ -1,18 +1,16 @@
 {
 	"name": "wordpress-enhanced-workflow",
 	"description": "Enhance your WordPress workflow one command after the other.",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"author": "Jackson Lewis",
 	"license": "MIT",
 	"scripts": {
-		"install": "cd wp-content/themes/shiftr && npm install",
-		"build": "cd wp-content/themes/shiftr && gulp build",
-		"compile": "cd wp-content/themes/shiftr && gulp compile",
-		"compile-production": "cd wp-content/themes/shiftr && gulp compile --env production",
+        "install-theme": "cd wp-content/themes/shiftr && npm ci",
+        "watch": "cd wp-content/themes/shiftr && gulp watch",
+		"build": "cd wp-content/themes/shiftr && NODE_ENV='production' gulp build",
         "ssh": ".scripts/ssh.bash $1",
         "ssh-staging": "npm -s run ssh staging",
         "ssh-production": "npm -s run ssh production",
-		"launch-env": ".scripts/launch-env.bash $1",
 		"sync-db": ".scripts/sync-db.bash $1 $2",
 		"sync-media": ".scripts/sync-media.bash $1 $2",
 		"get-staging-db": ".scripts/sync-db.bash staging dev",
@@ -24,6 +22,7 @@
 		"push-staging-db": ".scripts/sync-db.bash dev staging",
 		"push-staging-media": ".scripts/sync-media.bash dev staging",
         "push-staging": "npm -s run push-staging-db && npm -s run push-staging-media",
-        "woo-override": ".scripts/woocommerce-override-template.bash $1"
+        "woo-override": ".scripts/woocommerce-override-template.bash $1",
+        "launch-env": ".scripts/launch-env.bash $1"
 	}
 }
