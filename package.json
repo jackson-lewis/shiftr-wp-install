@@ -5,7 +5,7 @@
 	"author": "Jackson Lewis",
 	"license": "MIT",
 	"scripts": {
-        "install-theme": "cd wp-content/themes/shiftr && npm ci",
+        "install-theme-deps": "cd wp-content/themes/shiftr && npm ci",
         "watch": "cd wp-content/themes/shiftr && gulp watch",
 		"build": "cd wp-content/themes/shiftr && NODE_ENV='production' gulp build",
         "ssh": ".scripts/ssh.bash $1",

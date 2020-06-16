@@ -24,7 +24,7 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - name: Get deps
-      run: npm -s run install
+      run: npm -s run install-theme-deps
     - name: Compile (unminified)
       run: cd wp-content/themes/shiftr && gulp build-dev
     - name: Deploy to server
