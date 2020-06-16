@@ -89,6 +89,22 @@ sync_db() {
 		done
 	fi
 
+    # Disable production only plugins
+    #
+    # We don't need to do any fancy conditionals to check if plugins
+    # exist or are already inactive etc... wp-cli will handle all that
+    # anyway so just let it do its thing.
+    if [[ "$source" == "production" && -e $PWD"/.scripts/production-only-plugins.json" ]] then
+		JSON=$( cat $PWD/.scripts/production-only-plugins.json )
+        ROWS=(`echo $JSON | jq '. | length'`)
+
+        for (( i = 0 ; i < (`echo $JSON | jq '. | length'`) ; i++ )); do
+
+            name=$(echo $JSON | jq ".[$i]")
+            wp plugin deactivate ${name//\"/}
+        done
+	fi
+
 	echo $green"Database sync complete!"$white
 }
 
