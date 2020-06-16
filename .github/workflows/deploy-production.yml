@@ -24,9 +24,9 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-node-
     - name: Get deps
-      run: npm -s run install
+      run: npm -s run install-theme-deps
     - name: Compile (minified)
-      run: npm -s run compile-production
+      run: npm -s run build
     - name: Deploy to server
       id: deploy
       uses: Pendect/action-rsyncer@v1.1.0
