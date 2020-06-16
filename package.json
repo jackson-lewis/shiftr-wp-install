@@ -1,7 +1,7 @@
 {
 	"name": "wordpress-enhanced-workflow",
 	"description": "Enhance your WordPress workflow one command after the other.",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"author": "Jackson Lewis",
 	"license": "MIT",
 	"scripts": {
