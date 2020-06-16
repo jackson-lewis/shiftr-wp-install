@@ -26,7 +26,7 @@ jobs:
     - name: Get deps
       run: npm -s run install
     - name: Compile (unminified)
-      run: npm -s run compile
+      run: cd wp-content/themes/shiftr && gulp build-dev
     - name: Deploy to server
       id: deploy
       uses: Pendect/action-rsyncer@v1.1.0
