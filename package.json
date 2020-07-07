@@ -1,28 +1,37 @@
 {
-	"name": "wordpress-enhanced-workflow",
-	"description": "Enhance your WordPress workflow one command after the other.",
-	"version": "1.0.3",
-	"author": "Jackson Lewis",
-	"license": "MIT",
-	"scripts": {
-        "install-theme-deps": "cd wp-content/themes/shiftr && npm ci",
-        "watch": "cd wp-content/themes/shiftr && gulp watch",
-		"build": "cd wp-content/themes/shiftr && NODE_ENV='production' gulp build",
-        "ssh": ".scripts/ssh.bash $1",
-        "ssh-staging": "npm -s run ssh staging",
-        "ssh-production": "npm -s run ssh production",
-		"sync-db": ".scripts/sync-db.bash $1 $2",
-		"sync-media": ".scripts/sync-media.bash $1 $2",
-		"get-staging-db": ".scripts/sync-db.bash staging dev",
-		"get-staging-media": ".scripts/sync-media.bash staging dev",
-		"get-staging": "npm -s run get-staging-db && npm -s run get-staging-media",
-		"get-production-db": ".scripts/sync-db.bash production dev",
-		"get-production-media": ".scripts/sync-media.bash production dev",
-		"get-production": "npm -s run get-production-db && npm -s run get-production-media",
-		"push-staging-db": ".scripts/sync-db.bash dev staging",
-		"push-staging-media": ".scripts/sync-media.bash dev staging",
-        "push-staging": "npm -s run push-staging-db && npm -s run push-staging-media",
-        "woo-override": ".scripts/woocommerce-override-template.bash $1",
-        "launch-env": ".scripts/launch-env.bash $1"
-	}
+  "name": "wordpress-enhanced-workflow",
+  "version": "1.0.3",
+  "description": "Take your WordPress workflow to the next level with a suite of commands that give you back the time to create a better future for the web!",
+  "scripts": {
+    "install-theme-deps": "cd wp-content/themes/shiftr && npm ci",
+    "watch": "cd wp-content/themes/shiftr && gulp watch",
+    "build": "cd wp-content/themes/shiftr && NODE_ENV='production' gulp build",
+    "ssh": ".scripts/ssh.bash $1",
+    "ssh-staging": "npm -s run ssh staging",
+    "ssh-production": "npm -s run ssh production",
+    "sync-db": ".scripts/sync-db.bash $1 $2",
+    "sync-media": ".scripts/sync-media.bash $1 $2",
+    "get-staging-db": ".scripts/sync-db.bash staging dev",
+    "get-staging-media": ".scripts/sync-media.bash staging dev",
+    "get-staging": "npm -s run get-staging-db && npm -s run get-staging-media",
+    "get-production-db": ".scripts/sync-db.bash production dev",
+    "get-production-media": ".scripts/sync-media.bash production dev",
+    "get-production": "npm -s run get-production-db && npm -s run get-production-media",
+    "push-staging-db": ".scripts/sync-db.bash dev staging",
+    "push-staging-media": ".scripts/sync-media.bash dev staging",
+    "push-staging": "npm -s run push-staging-db && npm -s run push-staging-media",
+    "woo-override": ".scripts/woocommerce-override-template.bash $1",
+    "launch-env": ".scripts/launch-env.bash $1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackson-lewis/wordpress-enhanced-workflow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackson-lewis/wordpress-enhanced-workflow/issues"
+  },
+  "homepage": "https://github.com/jackson-lewis/wordpress-enhanced-workflow#readme"
 }
