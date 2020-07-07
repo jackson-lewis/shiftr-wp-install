@@ -2,6 +2,11 @@
 
 This changelog is being recorded after this project has been widely adopted by my own projects. The prior 'version' was always v1.0.0 so for this reason this changelog will kick off from v1.0.1
 
+## v1.0.4
+**07/07/20**
+- Bug fix on sync-db and sync-media where a semi-colon was missing from logic
+- Refreshed `package.json` with repo details
+
 ## v1.0.3
 **16/06/20**
 > This release has been pushed early due to the discrepancies with incorrect command names.

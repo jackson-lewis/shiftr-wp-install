@@ -1,6 +1,6 @@
 {
   "name": "wordpress-enhanced-workflow",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Take your WordPress workflow to the next level with a suite of commands that give you back the time to create a better future for the web!",
   "scripts": {
     "install-theme-deps": "cd wp-content/themes/shiftr && npm ci",
