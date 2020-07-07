@@ -26,13 +26,11 @@ then
 fi
 
 
-if [[ $target =~ ^(staging|production)$ ]]
-then
+if [[ $target =~ ^(staging|production)$ ]]; then
     read -p "Are you sure you want to push to $target? " -r
     echo
 
-    if [[ ! $REPLY =~ ^(y|Y|yes|YES|Yes|yea|yeah)$ ]]
-    then
+    if [[ ! $REPLY =~ ^(y|Y|yes|YES|Yes|yea|yeah)$ ]]; then
         echo $cyan"Cancelling database sync"$white
         exit 1
     fi
@@ -94,7 +92,7 @@ sync_db() {
     # We don't need to do any fancy conditionals to check if plugins
     # exist or are already inactive etc... wp-cli will handle all that
     # anyway so just let it do its thing.
-    if [[ "$source" == "production" && -e $PWD"/.scripts/production-only-plugins.json" ]] then
+    if [[ "$source" == "production" && -e $PWD"/.scripts/production-only-plugins.json" ]]; then
 		JSON=$( cat $PWD/.scripts/production-only-plugins.json )
         ROWS=(`echo $JSON | jq '. | length'`)
 

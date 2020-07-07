@@ -28,13 +28,11 @@ then
 fi
 
 
-if [[ $target =~ ^(staging|production)$ ]]
-then
+if [[ $target =~ ^(staging|production)$ ]]; then
     read -p "Are you sure you want to push to $target? " -r
     echo
 
-    if [[ ! $REPLY =~ ^(y|Y|yes|YES|Yes|yea|yeah)$ ]]
-    then
+    if [[ ! $REPLY =~ ^(y|Y|yes|YES|Yes|yea|yeah)$ ]]; then
         echo $cyan"Cancelling media sync"$white
         exit 1
     fi
