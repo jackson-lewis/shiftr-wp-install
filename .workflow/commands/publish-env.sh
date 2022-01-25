@@ -95,7 +95,7 @@ setup_target_wp_config
 
 
 # Move the database
-. $CWD/sync-db.bash dev $TARGET
+. .workflow/commands/sync-db.sh dev $TARGET
 
 
 # Do further production publish
