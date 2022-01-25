@@ -5,7 +5,7 @@ on:
     branches:
     - production
     paths:
-    - 'wp-content/themes/<THEME>/**'
+    - 'wp-content/themes/shiftr/**'
 
 jobs:
   deploy:
@@ -34,7 +34,7 @@ jobs:
         DEPLOY_KEY: ${{secrets.PRODUCTION_DEPLOY_KEY}}
       with:
         flags: '-avz --delete'
-        options: '--exclude-from $GITHUB_WORKSPACE/.scripts/deploy/exclude-production.txt'
+        options: '--exclude-from $GITHUB_WORKSPACE/.workflow/exclude/deploy-production.txt'
         ssh_options: ''
         src: '${{ secrets.THEME_DIR }}'
         dest: '${{ secrets.PRODUCTION_USER }}@${{ secrets.PRODUCTION_HOST }}:${{ secrets.PRODUCTION_PATH }}/${{ secrets.THEME_DIR }}'

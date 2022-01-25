@@ -72,7 +72,7 @@ sync_db() {
 
 	# Change URLs
 	echo "Updating URLs in $target database..."
-	wp $wp_cli_target search-replace "$SOURCE_URL" "$TARGET_URL" --skip-columns=guid --report=0 || exit 1
+	wp $wp_cli_target search-replace "$SOURCE_URL" "$TARGET_URL" --skip-columns=guid --report=0 --all-tables || exit 1
 
 	# Flush the cache
 	wp $wp_cli_target cache flush
@@ -92,8 +92,8 @@ sync_db() {
     # We don't need to do any fancy conditionals to check if plugins
     # exist or are already inactive etc... wp-cli will handle all that
     # anyway so just let it do its thing.
-    if [[ "$source" == "production" && -e $PWD"/.scripts/production-only-plugins.json" ]]; then
-		JSON=$( cat $PWD/.scripts/production-only-plugins.json )
+    if [[ "$source" == "production" && -e $PWD"/.workflow/production-only-plugins.json" ]]; then
+		JSON=$( cat $PWD/.worflow/production-only-plugins.json )
         ROWS=(`echo $JSON | jq '. | length'`)
 
         for (( i = 0 ; i < (`echo $JSON | jq '. | length'`) ; i++ )); do

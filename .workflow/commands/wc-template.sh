@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-CWD=${0%/*}
-
-. $CWD/global.bash || exit 1
+. .workflow/global.sh || exit 1
 
 
 if [  $# -le 0 ]
@@ -21,9 +19,14 @@ if ! $(wp plugin is-installed woocommerce); then
     exit 1
 fi
 
+if [[ -e wp-content/themes/shiftr/woocommerce/"$1" ]]
+then
+    echo $red"$1 already exists in your theme."$white
+    exit 1
+fi
 
 # Create Woocommerce template directory in theme
-mkdir -p wp-content/themes/YOUR-THEME/woocommerce
+mkdir -p wp-content/themes/shiftr/woocommerce
 
 
 cd wp-content/plugins/woocommerce/templates
@@ -36,4 +39,4 @@ fi
 
 
 # Copy Woocommerce file to theme
-rsync -R $1 ../../../themes/YOUR-THEME/woocommerce/
+rsync -R $1 ../../../themes/shiftr/woocommerce/

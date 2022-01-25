@@ -7,9 +7,9 @@ CWD=${0%/*}
 
 if [  $# -le 0 ]
 then
-	echo $cyan"Launch Environment v1.0"$white
+	echo $cyan"Publish Environment v1.0"$white
 	echo
-    echo -e "Launch the local development project to a remote server, the target can be either staging|production"
+    echo -e "Publish the local development project to a remote server, the target can be either staging|production"
     echo
     echo "It is assumed that the target has the following actions complete:"
     echo "    - SSH access to target server"
@@ -22,7 +22,7 @@ then
 fi
 
 
-echo $cyan'Preparing launch...'$white
+echo $cyan'Preparing to publish...'$white
 echo
 echo 'Target is:' $1;
 echo
@@ -33,13 +33,13 @@ TARGET=$1
 # Check destination is allowed
 if [ "$TARGET" == "dev" ]
 then
-	echo $red"Error!"$white "Launch target can only be either staging|production"
+	echo $red"Error!"$white "Publish target can only be either staging|production"
 
 	exit 1
 fi
 
 
-# Check launch hasn't already been ran for the requested environment
+# Check publish hasn't already been ran for the requested environment
 check_launch_env() {
 
 	wp_cli_source="@$TARGET"
@@ -58,7 +58,7 @@ REMOTE_LOCATION=$(get_host $TARGET)
 
 
 # Sync all files to the target environment
-rsync -avz --exclude-from "$(pwd)/.scripts/launch/exclude-$TARGET.txt" --include=".htaccess" * "$REMOTE_LOCATION"
+rsync -avz --exclude-from "$(pwd)/.workflow/exclude/publish-$TARGET.txt" --include=".htaccess" * "$REMOTE_LOCATION"
 
 
 setup_target_wp_config() {
@@ -88,6 +88,8 @@ setup_target_wp_config() {
 		cd $( echo "$remote_path" );
 
 		mv wp-config-\"$TARGET\".php wp-config.php;
+
+        wp db create;
 	"
 }
 
@@ -98,8 +100,8 @@ setup_target_wp_config
 . $CWD/sync-db.bash dev $TARGET
 
 
-# Do further production launch
-prep_production_launch() {
+# Do further production publish
+prep_production_publish() {
 
 	wp @production plugin install wordfence --activate
 	wp @production plugin install wp-fastest-cache
@@ -107,6 +109,6 @@ prep_production_launch() {
 
 if [[ "$TARGET" == "production" ]]
 then
-	prep_production_launch
+	prep_production_publish
 fi
 

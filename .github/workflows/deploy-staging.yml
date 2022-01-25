@@ -5,7 +5,7 @@ on:
     branches:
     - master
     paths:
-    - 'wp-content/themes/<THEME>/**'
+    - 'wp-content/themes/shiftr/**'
 
 jobs:
   deploy:
@@ -34,7 +34,7 @@ jobs:
         DEPLOY_KEY: ${{secrets.STAGING_DEPLOY_KEY}}
       with:
         flags: '-avz --delete'
-        options: '--exclude-from $GITHUB_WORKSPACE/.scripts/deploy/exclude-staging.txt'
+        options: '--exclude-from $GITHUB_WORKSPACE/.workflow/exclude/deploy-staging.txt'
         ssh_options: ''
         src: '${{ secrets.THEME_DIR }}'
         dest: '${{ secrets.STAGING_USER }}@${{ secrets.STAGING_HOST }}:${{ secrets.STAGING_PATH }}/${{ secrets.THEME_DIR }}'

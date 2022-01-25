@@ -2,6 +2,19 @@
 
 This changelog is being recorded after this project has been widely adopted by my own projects. The prior 'version' was always v1.0.0 so for this reason this changelog will kick off from v1.0.1
 
+## v2.0.0
+**25/01/22**
+Well, a whooping 18 months since this project last received an update...
+
+Many features have been developed since then, yet the core project never updated, until now.
+
+* `.scripts` renamed to `.workflow`
+* `new-block`, `new-template` and `new-part` commands provide a fast and efficient way of setting up new PHP and SCSS files.
+* `.gitignore` updated to work correctly out the box and includes new ignores such as `wp-content/debug.log`
+* All `rsync` exclusions updated to be up-to-date with latest Shiftr files and directories.
+* `wc-template` makes for easy WooCommerce template overrides.
+* Command files updated from `.bash` to `.sh`
+
 ## v1.0.4
 **07/07/20**
 - Bug fix on sync-db and sync-media where a semi-colon was missing from logic

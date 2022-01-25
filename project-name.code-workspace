@@ -6,7 +6,7 @@
 		},
 		{
 			"name": "Theme",
-			"path": "wp-content/themes/<THEME>"
+			"path": "wp-content/themes/shiftr"
 		}
 	]
 }

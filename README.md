@@ -12,7 +12,7 @@ Take your WordPress workflow to the next level with a suite of commands that giv
 
  - `ssh [staging|production]` - Quickly hop into remote servers without typing or even remembering users or IP addresses. 
  - `launch-env [staging|production]` - Initially send all files and the database up to a remote server, either for staging, test or even production.
- - `watch` - Start up a task runner of your preference.
+ - `dev` - Start up a task runner of your preference.
  - `build` Used by GitHub Actions to compile assets for production environment.
 
 ### Syncing Database & Media
@@ -28,4 +28,4 @@ What used to be a clumsy and sometimes lengthy process, can now be processed in 
 > It is always advised you fetch the database and media together, as media is dependant on the database. Only fetch the database if you are confident there are not recent media changes.
 
 ### Woocommerce Ready
-`woo-override <file>` - Copying a Woocommerce template file to your theme is a breeze with this Woo specific command. File references should be relative to the template directory within the Woocommerce plugin. For example, to get the cart-empty template, just do `woo-override cart/cart-empty.php`.
+`wc-template <file>` - Copying a Woocommerce template file to your theme is a breeze with this Woo specific command. File references should be relative to the template directory within the Woocommerce plugin. For example, to get the cart-empty template, just do `wc-template cart/cart-empty.php`.
