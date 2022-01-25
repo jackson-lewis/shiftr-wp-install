@@ -1,6 +1,6 @@
 {
   "name": "wordpress-enhanced-workflow",
-  "version": "1.0.4",
+  "version": "2.0.0",
   "description": "Take your WordPress workflow to the next level with a suite of commands that give you back the time to create a better future for the web!",
   "scripts": {
     "install-theme-deps": "cd wp-content/themes/shiftr && npm ci",
@@ -24,6 +24,7 @@
     "push-staging-media": ".workflow/commands/sync-media.sh dev staging",
     "push-staging": "npm -s run push-staging-db && npm -s run push-staging-media",
     "wc-template": ".workflow/commands/wc-template.sh $1",
+    "fetch-site": ".workflow/commands/fetch-env.sh",
     "publish-staging": ".workflow/commands/publish-env.sh staging",
     "publish-production": ".workflow/commands/publish-env.sh production"
   },

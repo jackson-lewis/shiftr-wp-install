@@ -13,6 +13,7 @@ Many features have been developed since then, yet the core project never updated
 * `.gitignore` updated to work correctly out the box and includes new ignores such as `wp-content/debug.log`
 * All `rsync` exclusions updated to be up-to-date with latest Shiftr files and directories.
 * `wc-template` makes for easy WooCommerce template overrides.
+* `fetch-site` makes it easy to get up and running with an existing project.
 * Command files updated from `.bash` to `.sh`
 
 ## v1.0.4

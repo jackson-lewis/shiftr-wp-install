@@ -3,7 +3,7 @@ name: Deploy Staging
 on:
   push:
     branches:
-    - master
+    - main
     paths:
     - 'wp-content/themes/shiftr/**'
 
@@ -26,7 +26,7 @@ jobs:
     - name: Get deps
       run: npm -s run install-theme-deps
     - name: Compile (unminified)
-      run: cd wp-content/themes/shiftr && gulp build-dev
+      run: cd wp-content/themes/shiftr && gulp build
     - name: Deploy to server
       id: deploy
       uses: Pendect/action-rsyncer@v1.1.0

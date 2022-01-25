@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 
-CWD=${0%/*}
-
-. $CWD/global.bash || exit 1
+. .workflow/global.sh || exit 1
 
 
 if [  $# -le 0 ]
