@@ -1,0 +1,45 @@
+/*
+
+    //  //// --|    Foundation / Lists
+
+*/
+
+
+//  If you're looking to increase the space between
+//  the bullet and text, place text inside span
+//  positioned relative to the li then use
+//  padding-left on the span.
+
+
+ul, ol {
+    margin: 0;
+    padding-left: 4px;
+
+    line-height: var(--t-base-line-height);
+
+    li {
+        // Space out by half a line height
+        margin-bottom: get_baseline( .25 );
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+ul {
+    list-style: circle outside;
+
+    padding-left: 20px;
+}
+
+ol {
+    list-style: decimal inside;
+}
+
+// Support for nested lists (only 1 level)
+ul ul, ul ol, ol ol, ol ul {
+    margin-bottom: 0;
+    padding-left: 30px;
+}
+

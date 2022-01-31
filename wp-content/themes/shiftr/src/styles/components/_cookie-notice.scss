@@ -1,0 +1,69 @@
+/*
+
+    //  //// --|    Cookie Notice Styles
+
+*/
+.shiftr-cookie-notice {
+    width: calc( 100vw - 8px );
+    max-width: 500px;
+    padding: 10px 20px;
+    position: fixed;
+    left: 4px;
+    bottom: 4px;
+    transform: translateY( calc( 100% + 10px ) );
+    z-index: 9999;
+    
+    opacity: 0;
+    background-color: var(--c-l-grey);
+    border-radius: var(--border-radius);
+    box-shadow: 0 0 10px rgba( $d-grey, .2 ),
+                0 0 30px rgba( $d-grey, .15 ),
+                0 0 60px rgba( $d-grey, .1 );
+
+    animation-duration: 800ms;
+    animation-timing-function: cubic-bezier( 0.2, 0.9, 0.6, 1 );
+    animation-fill-mode: forwards;
+
+    &.is-visible {
+        display: block;
+
+        animation-name: cookie_is_visible;
+    }
+
+    &:hover {
+        background-color: rgba( $l-grey, 1 );
+    }
+
+    p {
+        margin-bottom: get_baseline( .5 );
+        
+        font-size: .875rem;
+    }
+
+    button.button-fill {
+        margin-right: 10px;
+    }
+
+    @include min-width( m ) {
+        max-width: 300px;
+        padding: 20px;
+        left: 10px;
+        bottom: 10px;
+    }
+}
+
+
+@keyframes cookie_is_visible {
+
+    0% {
+        transform: translateY( calc( 100% + 10px ) );
+
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY( 0 );
+
+        opacity: 1;
+    }
+}

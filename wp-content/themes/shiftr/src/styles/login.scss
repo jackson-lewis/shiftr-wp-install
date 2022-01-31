@@ -1,0 +1,64 @@
+/*
+
+    //  //// --|    LOGIN.SCSS
+
+*/
+
+
+//  Normalize
+@import 'base/normalize/normalize';
+
+
+//  Initiation
+@import 'base/variables';
+@import 'base/functions';
+@import 'base/mixins';
+
+
+//  Foundation
+@import 'foundation/typography';
+
+:root {
+    --border-radius: 4px;
+
+    --link-blue: #{$link-blue};
+    --link-blue-hover: #{$link-blue-hover};
+}
+
+.login {
+    background: linear-gradient( 0deg, $l-grey 0%, $white 100% );
+
+    a {
+        &.privacy-policy-link {
+            color: #0073aa;
+        }
+
+        @include after( false ) {
+            display: none;
+        }
+    }
+
+
+    form {
+        border: none;
+        border-radius: calc( var( --border-radius ) * 2 );
+        box-shadow: 0 5px 10px rgba( $d-grey, .2 ),
+                    0 15px 30px rgba( $d-grey, .1 );
+    }
+
+    #login_error,
+    .message,
+    .success {
+        border-left: none;
+        border: 1px solid $blue;
+        border-radius: var( --border-radius );
+        background-color: transparent;
+        box-shadow: none;
+        font-size: 1rem;
+    }
+
+    #login_error {
+        border-color: $red;
+    }
+}
+

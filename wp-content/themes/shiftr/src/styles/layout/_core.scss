@@ -1,0 +1,339 @@
+/*
+
+    //  //// --|    Blueprint / Core
+
+*/
+
+
+//  --|    Custom resets
+
+* { box-sizing: border-box }
+
+img, video { 
+    max-width: 100%; 
+    height: auto; 
+    display: block; 
+}
+
+
+//  --|    Body core styling
+:root {
+    // Layout
+    --container-width: #{$container-width};
+    --site-padding: #{$site-padding};
+    --site-margin: var(--site-padding);
+    --site-gutter: 15px;
+
+    // Aesthetics
+    --border-radius: 4px;
+
+    // Raw colours
+    --c-primary: #{$primary};
+    --c-secondary: #{$secondary};
+    --c-white: #{$white};
+    --c-l-grey: #{$l-grey};
+    --c-black: #{$black};
+    --c-d-grey: #{$d-grey};
+
+    --c-green: #{$green};
+    --c-blue: #{$blue};
+    --c-red: #{$red};
+
+    // Assigned colours
+    --c-text-base: var(--c-d-grey);
+    --c-link: #{$link-blue};
+    --c-link-hover: #{$link-blue-hover};
+
+    // Type
+    --t-font-family: #{$base-font-family};
+    --t-h-font-family: #{$heading-font-family};
+    --t-base-font-size: #{$base-min-font-size};
+    --t-max-font-size: #{$base-max-font-size};
+    --t-baseline: #{$baseline};
+    --t-base-line-height: #{$base-line-height};
+
+    @include min-width( m ) {
+        --site-gutter: 30px;
+    }
+}
+
+//  --|    Selection
+*::selection {
+    color: var(--c-white);
+    background-color: var(--c-primary);
+    text-shadow: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    --header-height: #{$default-header-height};
+    --section-scroll-margin-top: 0;
+
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+    overflow-x: hidden;
+
+    background-color: var(--c-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    // Prevent scroll when header is open
+    &.no-scroll {
+        overflow-y: hidden;
+    }
+
+    &.header-state-active {
+        --section-scroll-margin-top: var(--header-height);
+    }
+
+    @include min-width( $header-breakpoint ) {
+        --header-height: 60px;
+    }
+}
+
+main.site-main {
+    padding-top: var(--header-height);
+}
+
+//  --|    Main layout container
+
+.site-padding {
+    padding-left: var(--site-padding);
+    padding-right: var(--site-padding);
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+    position: relative;
+}
+
+.grid-small {
+    @include min-width( s ) {
+        display: grid;
+        grid-gap: var(--site-gutter);
+        grid-template-columns: repeat( 12, 1fr );
+    }
+}
+
+.grid-medium {
+    @include min-width( m ) {
+        display: grid;
+        grid-gap: var(--site-gutter);
+        grid-template-columns: repeat( 12, 1fr );
+    }
+}
+
+.grid-large {
+    @include min-width( l ) {
+        display: grid;
+        grid-gap: var(--site-gutter);
+        grid-template-columns: repeat( 12, 1fr );
+    }
+}
+
+.contain-line-width {
+    max-width: line_width();
+}
+
+
+.content,
+.block-heading,
+.block-after {
+    max-width: line_width();
+    margin: auto;
+
+    & > *:first-child {
+        margin-top: 0;
+    }
+
+    & > *:last-child:not(.content-button-wrapper) {
+        margin-bottom: 0;
+    }
+
+    h1 {
+        margin-bottom: get_baseline();
+    }
+
+    h2 {
+        margin-top: get_baseline( 2 );
+        margin-bottom: get_baseline( .5 );
+    }
+
+    h3 {
+        margin-bottom: get_baseline( .25 );
+    }
+
+    ul, ol {
+        margin-bottom: get_baseline();
+    }
+
+    img {
+        &.alignnone {
+            margin: 0 auto get_baseline();
+        }
+    }
+}
+
+.block-heading,
+.block-after {
+
+    * {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+.block-heading {
+    margin-bottom: get_baseline();
+}
+
+.block-after {
+    margin-top: get_baseline();
+}
+
+
+//  --|    Section core styling
+
+section {
+    --s-vertical-padding: 100px;
+    --s-vertical-padding-negative: calc( var(--s-vertical-padding) * -1 );
+
+    &.site-section {
+        padding-left: var(--site-padding);
+        padding-right: var(--site-padding);
+        
+        scroll-margin-top: var( --section-scroll-margin-top );
+    }
+
+    &.has-bg {
+        padding-top: var(--s-vertical-padding);
+        padding-bottom: var(--s-vertical-padding);
+
+        & + .has-bg {
+            margin-top: var(--s-vertical-padding-negative);
+        }
+    }
+
+    // Sections with darken background
+    &.bg-black {
+        background-color: var(--c-black);
+        color: var(--c-white);
+
+        & + .bg-black {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-grey {
+        background-color: var(--c-l-grey);
+
+        & + .bg-grey {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-primary {
+        background-color: var(--c-primary);
+
+        & + .bg-primary {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-secondary {
+        background-color: var(--c-secondary);
+
+        & + .bg-secondary {
+            padding-top: 0;
+        }
+    }
+
+    &.bg-black {
+        .content {
+            @extend %inverted-button-base;
+        }
+    }
+}
+
+.flexi-blocks-builder {
+
+    .flexi-block.has-bg,
+    .flexi-block.block--google-maps {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    .flexi-block.has-bg,
+    .flexi-block.block--google-maps {
+
+        & + .has-bg,
+        & + .block--google-maps {
+            margin-top: var(--s-vertical-padding-negative);
+        }
+    }
+
+    .flexi-block {
+        padding-left: var(--site-padding);
+        padding-right: var(--site-padding);
+        
+        scroll-margin-top: var( --section-scroll-margin-top );
+        margin-bottom: var(--s-vertical-padding);
+
+        &:first-of-type {
+            &:not(.has-bg):not(.block--google-maps) {
+                margin-top: var(--s-vertical-padding);
+            }
+        }
+
+        &:last-of-type {
+
+            &.bg-black,
+            &.bg-grey {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+
+div#overlay {
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    z-index: 190;
+
+    background-color: rgba( $black, .4 );
+    backdrop-filter: blur( 2px ) saturate( 110% );
+
+    animation-duration: 500ms;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+body.overlay-active {
+    div#overlay {
+        display: block;
+        animation-name: overlay;
+    }
+}
+
+@keyframes overlay {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

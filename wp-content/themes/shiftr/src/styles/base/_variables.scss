@@ -1,0 +1,67 @@
+/*
+
+    //  //// --|    Init / Settings
+
+*/
+
+
+//  ////  --|    Breakpoints
+
+$breakpoints: ( 
+    s:      450,
+    m:      768,
+    l:      1024,
+    xl:     1600,
+    max:    1920
+);
+
+// This is the breakpoint value at which the header state changes
+// from mobile to desktop version.
+$header-breakpoint: 768;
+$default-header-height: 60px;
+
+
+//  ////  --|    Container
+
+$container-width:   1240px;
+$site-padding:      20px;
+
+
+//  ////  --|    Typography
+
+$base-min-font-size:        1;
+$base-max-font-size:        1.125;
+$base-line-height:          1.75; // This should always be unitless
+
+$base-font-family:          'Nunito', sans-serif;
+$heading-font-family:       'Nunito', sans-serif;
+
+$baseline:                  $base-max-font-size * $base-line-height;
+
+
+//  ////  --|    Colors
+
+//  Lights
+$white:     #FAFAFA;
+$l-grey:    darken( $white, 5% );
+
+//  Darks
+$black:     #080808;
+$d-grey:    lighten( $black, 10% );
+
+// Primary
+$primary:   #E44BB0;
+
+// Secondary
+$secondary: #444BB0;
+
+// Additional
+$blend:     mix( $primary, $secondary );
+
+// Utilities
+$blue:      #42C2FF;
+$green:     #04BF2F;
+$red:       #E30617;
+$link-blue: #0054b4;
+$link-blue-hover: #003879;
+

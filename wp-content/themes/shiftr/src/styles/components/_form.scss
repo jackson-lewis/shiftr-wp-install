@@ -1,0 +1,24 @@
+/*
+
+    //  //// --|    Components / Form
+
+*/
+
+
+.shiftr-form {
+    position: relative;
+
+    .field {
+        margin-bottom: 10px;
+        display: block;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    [type="submit"] {
+        --padding-ratio: 4;
+    }
+}
+
