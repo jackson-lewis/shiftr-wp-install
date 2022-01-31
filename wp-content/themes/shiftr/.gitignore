@@ -1,0 +1,16 @@
+
+# Directories
+node_modules/
+dev/
+
+
+# Files
+.DS_Store
+*.sublime-project
+
+
+# Compiled Assets
+assets/scripts/*.js
+assets/styles/*.css
+assets/**/.maps/
+assets/**/*.map

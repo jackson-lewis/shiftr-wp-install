@@ -1,0 +1,161 @@
+/*
+
+    //  //// --|    Foundation / Typography
+
+*/
+
+
+//  Core Resets
+p, h1, h2, h3, h4, h5, h6 { margin: 0; padding: 0; border: 0 }
+
+
+//  ////  --|    Core Styling
+body, input, textarea, button, select {
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: rem( $base-min-font-size );
+    font-size: _clamp( rem( $base-min-font-size ), 3vw, rem( $base-max-font-size ) );
+
+    color: var(--c-text-base);
+
+    //  It's typically better for body text to be subtly lighter
+    //  than headings, value here is 10% lighter than base colour
+}
+
+.fonts-loaded {
+    body, input, textarea, button, select {
+        font-family: $base-font-family;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: $heading-font-family;
+    }
+}
+
+p {
+    max-width: line_width();
+    margin-bottom: get_baseline();
+
+    line-height: $base-line-height;
+    text-align: inherit;
+    color: inherit;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    &:empty {
+        display: none;
+    }
+}
+
+
+//  ////  --|    Headings
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+
+    text-align: left;
+    line-height: 1.4;
+
+    color: inherit;
+}
+
+$headers:   'h1' 2.375rem calc( 5vw + 10px ) 4rem,
+            'h2' 2rem calc( 4vw + 10px ) 3.125rem,
+            'h3' 1.5rem calc( 3vw + 10px ) 2rem,
+            'h4' 1.375rem calc( 2vw + 5px ) 1.875rem,
+            'h5' 1.125rem calc( 2vw + 5px ) 1.5rem,
+            'h6' 1rem calc( 2vw + 5px ) 1.125rem;
+
+@each $heading in $headers {
+
+    #{ nth( $heading, 1 ) } {
+        font-size: nth( $heading, 2 );
+        font-size: _clamp( nth( $heading, 2 ), nth( $heading, 3 ), nth( $heading, 4 ) );
+
+        @supports not (font-size: clamp(1px,1vw,2px)) {
+            @include min-width( l ) {
+                font-size: nth( $heading, 4 );
+            }
+        }
+        
+    }
+}
+
+//  ////  --|    Anchor Links
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+//  If <p> follows <a> then add margin-top
+//  to the <p> tag
+a + p {
+    margin-top: get_baseline();
+}
+
+p a {
+    text-decoration: underline;
+    color: var(--c-link);
+
+    transition: 50ms;
+
+    &:hover {
+        color: var(--c-link-hover);
+    }
+}
+
+
+//  ////  --|    Blockquote
+
+$blockquotes: false;
+
+@if ( $blockquotes ) {
+
+    blockquote {
+        max-width: line_width();
+
+        margin: 0 auto 24px auto;
+        padding: 7px 0 17px 40px;
+        position: relative;
+
+        font-size: 1.75rem;
+        font-style: italic;
+        line-height: 1.5;
+
+        $caption: true;
+
+        @if ( $caption ) {
+
+            span {
+                margin-top: 9px;
+                padding-top: 5px;
+                padding-bottom: 9px;
+                display: block;
+
+                border-top: 1px solid $primary;
+
+                font-size: 1rem;
+                font-style: normal;
+                font-weight: 700;
+                line-height: 1.5;
+            }
+        }
+
+        // Quotation mark
+        @include before {
+            content: "\201C"; 
+
+            top: 18px;
+            left: 6px;
+
+            color: $primary;
+            font-size: 3.5rem;
+            line-height: 1;
+        }
+    }
+}
+

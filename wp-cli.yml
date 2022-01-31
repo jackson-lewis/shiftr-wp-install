@@ -1,6 +1,6 @@
 @staging:
-    ssh: staging_user@staging_host
-    path: staging_path
+    ssh: boxchilli@185.151.29.152
+    path: /var/www/wintercomms.digital-dev.co.uk/public_html
 
 @production:
     ssh: production_user@production_host
