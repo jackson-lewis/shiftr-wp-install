@@ -1,0 +1,129 @@
+/*
+
+    //  //// --|    Components / Navigation
+
+*/
+
+
+nav {
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        a {
+            cursor: pointer;
+
+            line-height: $base-line-height;
+
+            transition: 200ms;
+
+            &:hover {
+                color: var(--c-primary);
+            }
+        }
+
+        span {
+            display: inline-block;
+        }
+    }
+}
+
+
+.nav-primary {
+
+    ul#nav-primary {
+        display: flex;
+
+        li {
+            font-size: 1rem;
+            
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &.level-0-item {
+                margin: 0;
+                margin-right: 30px;
+
+                & > a {
+                    padding: 4px 0;
+                }
+            }
+            
+            &.has-sub-menu {
+                position: relative;
+
+                .sub-menu {
+                    min-width: 160px;
+                    width: max-content;
+                    margin-top: 0;
+                    padding: 20px;
+                    position: absolute;
+                    top: 100%;
+                    left: -20px;
+                    display: none;
+                    z-index: 10;
+                    
+                    border-radius: var( --border-radius );
+                    background-color: var(--c-white);
+                    box-shadow: 0 3px 6px rgba( #333333, .2 ),
+                                0 9px 18px rgba( #666666, .1 );
+
+                    animation-duration: 600ms;
+                    animation-timing-function: cubic-bezier(0.21, 0.89, 0.58, 1);
+                    animation-fill-mode: alternate;
+
+                    li {
+                        margin-bottom: 8px;
+
+                        a {
+                            width: 100%;
+                        }
+
+                        &:last-child {
+                            margin-bottom: 0;
+                        }
+                    }
+
+                    .sub-menu {
+                        top: -20px;
+                        left: calc( 100% + 10px );
+                        z-index: 20;
+                    }
+                }
+
+                &.is-visible {
+                    & > .sub-menu {
+                        display: block;
+                        animation-name: dropdown_menu;
+                    }
+                }
+            }
+
+            a {
+                display: inline-block;
+            }
+        }
+    }
+}
+
+
+@keyframes dropdown_menu {
+
+    0% {
+        opacity: 0;
+        transform: translateY( -10px );
+    }
+
+    20% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY( 0 );
+    }
+}
+

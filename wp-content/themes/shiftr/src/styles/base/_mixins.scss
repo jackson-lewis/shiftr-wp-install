@@ -1,0 +1,80 @@
+/*
+
+    //  //// --|    Init / Mixins
+
+*/
+
+
+//  MEDIA QUERIES
+@mixin min-width( $size ) {
+    $value: '';
+
+    @if ( type-of( $size ) == 'number' ) {
+        $value: $size;
+
+    } @else {
+        $value: map-get( $breakpoints, $size );
+    }
+
+    @media screen and (min-width: #{$value / 16}em) {
+        @content;
+    }
+}
+
+
+// RESPONSIVE RATIO
+@mixin ratio( $x, $y ) {
+    padding-top: unquote( ( $y / $x ) * 100 + '%' );
+}
+
+
+//  TRUNCATE
+@mixin truncate( $overflow: ellipsis ) {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: $overflow;
+}
+
+
+//  PSEUDO
+@mixin before( $include: true, $position: absolute, $content: '' ) {
+
+    &::before {
+
+        @if ( $include ) {
+            content: $content;
+            display: block;
+            position: $position;
+        }
+        
+        @content;
+    }
+}
+
+
+@mixin after( $include: true, $position: absolute, $content: '' ) {
+
+    &::after {
+        
+        @if ( $include ) {
+            content: $content;
+            display: block;
+            position: $position;
+        }
+
+        @content;
+    }
+}
+
+
+@mixin object-fit( $x: 50%, $y: 50% ) {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    object-fit: cover;
+    object-position: $x $y;
+    font-family: 'object-fit';
+}
