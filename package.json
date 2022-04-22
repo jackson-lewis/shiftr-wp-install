@@ -4,8 +4,8 @@
   "description": "Take your WordPress workflow to the next level with a suite of commands that give you back the time to create a better future for the web!",
   "scripts": {
     "install-theme-deps": "cd wp-content/themes/shiftr && npm ci",
-    "watch": "cd wp-content/themes/shiftr && gulp watch",
-    "build": "cd wp-content/themes/shiftr && NODE_ENV='production' gulp build",
+    "watch": "cd wp-content/themes/shiftr && npm run dev",
+    "build": "cd wp-content/themes/shiftr && npm run build",
     "ssh": ".scripts/ssh.bash $1",
     "ssh-staging": "npm -s run ssh staging",
     "ssh-production": "npm -s run ssh production",
