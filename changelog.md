@@ -2,6 +2,15 @@
 
 This changelog is being recorded after this project has been widely adopted by my own projects. The prior 'version' was always v1.0.0 so for this reason this changelog will kick off from v1.0.1
 
+## v2.1.0
+**03/09/22**
+Minor improvements.
+
+* NEW! Usage of `.env` file to store credentials for the project. This replaces the `.workflow/config.conf` file.
+* Updated the `fetch-env` command to set the `DB_HOST` port to `3306`
+* The Flexi Block template sample file comment has been updated to reference the `$settings` variable that's passed in.
+* Updated to target branch for the Deploy Staging workflow to `dev`
+
 ## v2.0.0
 **25/01/22**
 Well, a whooping 18 months since this project last received an update...
