@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-export $(grep -v '^#' .env | xargs)
-
-
 red=$'\e[1;31m'
 green=$'\e[1;32m'
 blue=$'\e[1;34m'
@@ -10,6 +7,14 @@ magenta=$'\e[1;35m'
 cyan=$'\e[1;36m'
 white=$'\e[0m'
 
+
+if [ ! -f .env ]
+then
+    echo $red"No .env file found."$white
+    exit 1
+fi
+
+export $(grep -v '^#' .env | xargs)
 
 get_url() {
 
