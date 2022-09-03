@@ -3,6 +3,7 @@
 node_modules
 
 .env
+.backups
 
 wp-admin/
 wp-includes/
