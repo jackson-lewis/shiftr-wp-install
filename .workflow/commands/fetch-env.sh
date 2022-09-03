@@ -30,7 +30,7 @@ wp config set WP_ENVIRONMENT_TYPE "development"
 wp db create
 wp db import $SQL_EXPORT_FILE
 
-wp config set DB_HOST "127.0.0.1:8889"
+wp config set DB_HOST "127.0.0.1:3306"
 
 # Clean up, remove exported SQL file.
 rm $SQL_EXPORT_FILE
