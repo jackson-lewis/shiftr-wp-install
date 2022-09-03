@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-. .workflow/config.conf || exit 1
+export $(grep -v '^#' .env | xargs)
 
 
 red=$'\e[1;31m'
