@@ -4,7 +4,7 @@
  * 
  * Description of this block.
  * 
- * @var $var Any variables passed
+ * @var $settings The Flexi Block settings
  */
 ?>
 <div class="container">
