@@ -2,6 +2,12 @@
 
 This changelog is being recorded after this project has been widely adopted by my own projects. The prior 'version' was always v1.0.0 so for this reason this changelog will kick off from v1.0.1
 
+## v2.2.0
+**12/10/22**
+* Cleanup removing old files.
+* Updated GitHub actions to use latest version of `actions/checkout`, `actions/setup-node` and `actions/cache`
+* GitHub Actions now uses Node 14
+
 ## v2.1.0
 **03/09/22**
 Minor improvements.
