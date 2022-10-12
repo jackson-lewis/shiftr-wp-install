@@ -13,11 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     - name: Set-up Node.js
-      uses: actions/setup-node@v1
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
     - name: Cache node_modules
-      uses: actions/cache@v1
+      uses: actions/cache@v3
       with:
         path: ~/.npm
         key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
@@ -33,7 +35,7 @@ jobs:
       env:
         DEPLOY_KEY: ${{secrets.STAGING_DEPLOY_KEY}}
       with:
-        flags: '-avz --delete'
+        flags: '-avzO --no-perms --delete'
         options: '--exclude-from $GITHUB_WORKSPACE/.workflow/exclude/deploy-staging.txt'
         ssh_options: ''
         src: '${{ secrets.THEME_DIR }}'
